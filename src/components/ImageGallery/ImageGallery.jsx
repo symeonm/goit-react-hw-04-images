@@ -34,6 +34,7 @@ export default function ImageGallery({ nameImage }) {
         }
       })
       .catch(error => setStatus('rejected'));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nameImage, page]);
 
   if (stateName !== nameImage && stateName !== '') {

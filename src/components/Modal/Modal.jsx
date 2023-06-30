@@ -11,6 +11,7 @@ export default function Modal( {children, onClose} ) {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleKeyDown = e => {
