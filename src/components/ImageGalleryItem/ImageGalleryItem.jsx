@@ -3,13 +3,9 @@ import {
   ImageGalleryItemImage,
 } from './ImageGalleryItemStyled';
 
-import { Component } from 'react';
 
-export default class ImageGalleryItem extends Component {
-  // console.log(clickImage);
 
-  render() {
-    const { webformatURL, largeImageURL, clickImage } = this.props;
+export default function ImageGalleryItem ({webformatURL, largeImageURL, clickImage}) {
 
     return (
       <ImageGalleryItemSt
@@ -19,5 +15,5 @@ export default class ImageGalleryItem extends Component {
         <ImageGalleryItemImage src={webformatURL} alt={webformatURL} />
       </ImageGalleryItemSt>
     );
-  }
+  
 }

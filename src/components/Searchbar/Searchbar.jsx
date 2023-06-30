@@ -1,22 +1,21 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import { SearchBarStyle, SearchForm, SearchFormInput, SearchFormButton, SearchFormButtonLabel} from "./SearcBarStyledComponent";
-export default class SearchBar extends Component {
-  state = {
-    name: ''
+export default function SearchBar ({onSubmit}) {
+  const [nameValue, setNameValue] = useState('')
+  
+
+  const handleChange = e => {
+    setNameValue(e.target.value.toLowerCase())
   };
 
-  handleChange = e => {
-    this.setState({ name: e.target.value.toLowerCase() });
-  };
-
-  render() {
+  // console.log(nameValue);
     return (
       <SearchBarStyle className="searchbar">
         <SearchForm
           className="form"
           onSubmit={e => {
             e.preventDefault();
-            this.props.onSubmit(this.state);
+            onSubmit(nameValue);
           }}
         >
           <SearchFormButton type="submit" className="button">
@@ -29,10 +28,10 @@ export default class SearchBar extends Component {
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
-            onChange={this.handleChange}
+            onChange={handleChange}
           />
         </SearchForm>
       </SearchBarStyle>
     );
-  }
+
 }
